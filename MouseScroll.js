@@ -20,7 +20,7 @@
 
 var HasDragged = false;
 
-function MouseScroll (Element, Button = 2)
+function MouseScroll (Element, Button = 1)
 {
 	Element.removeEventListener("mousedown", Element.md, 0);
 
