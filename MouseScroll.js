@@ -1,5 +1,5 @@
 /*
-					MouseScroll.js - 0.1
+					MouseScroll.js - 0.2
 
 
 	Copyright 2017 Christopher Ribeiro
@@ -18,9 +18,7 @@
 */
 
 
-var HasDragged = false;
-
-function MouseScroll (Element, Button = 1)
+function MouseScroll (Element, Switcher, Button = 1)
 {
 	Element.removeEventListener("mousedown", Element.md, 0);
 
@@ -33,28 +31,28 @@ function MouseScroll (Element, Button = 1)
 		{
 			if (!Element.hasAttribute("nochilddrag") || document.getElementFromPoint(Event.pageX, Event.pageY) == Count)
 			{
-				HasDragged = true;
+				Switcher = true;
 
 				LastClientX = Event.clientX;
 				LastClientY = Event.clientY;
 
-				Event.preventDefault ();
+				Event.preventDefault();
 			}
 		}
 	}, 0);
 
-	document.addEventListener("mouseup", Element.mu = function()
+	document.addEventListener("mouseup", Element.mu = function ()
 	{
 		if (Event.buttons === Button)
 		{
-			HasDragged = false;
+			Switcher = false;
 		}
 	}, 0);
-	document.addEventListener("mousemove", Element.mm = function(Event)
+	document.addEventListener("mousemove", Element.mm = function (Event)
 	{
 		if (Event.buttons === Button)
 		{
-			if (HasDragged)
+			if (Switcher)
 			{
 				(Scroller = Element.scroller || Element).scrollLeft -= NewScrollX = (- LastClientX + (LastClientX = Event.clientX));
 				Scroller.scrollTop -= NewScrollY = (- LastClientY + (LastClientY = Event.clientY));

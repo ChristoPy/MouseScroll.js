@@ -12,9 +12,11 @@ Include the MouseScroll.js:
 Call the MouseScroll function givin one element and the mouse button 1 or 2 (optional):
 ```js
 <script type="text/javascript">
-    MouseScroll (document.body);
+    MouseDrag = false;
+    MouseScroll (document.body, MouseDrag, 1);
 </script>
 ```
+
 ## Dependencies
 
 None.
@@ -24,4 +26,4 @@ None.
 See the HTML file.
 
 ## Version
-0.1
+0.2
