@@ -21,9 +21,5 @@ Call the MouseScroll function givin one element and the mouse button 1 or 2 (opt
 
 None.
 
-## Examples
-
-See the HTML file.
-
 ## Version
 0.2
