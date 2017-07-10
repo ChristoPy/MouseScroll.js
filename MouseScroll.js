@@ -1,5 +1,5 @@
 /*
-					MouseScroll.js - 0.2
+					MouseScroll.js - 0.3
 
 
 	Copyright 2017 Christopher Ribeiro
@@ -22,9 +22,6 @@ function MouseScroll (Element, Switcher, Button = 1)
 {
 	Element.removeEventListener("mousedown", Element.md, 0);
 
-	document.removeEventListener("mouseup", Element.mu, 0);
-	document.removeEventListener("mousemove", Element.mm, 0);
-
 	Element.addEventListener("mousedown", Element.md = function (Event)
 	{
 		if (Event.buttons === Button)
@@ -36,19 +33,20 @@ function MouseScroll (Element, Switcher, Button = 1)
 				LastClientX = Event.clientX;
 				LastClientY = Event.clientY;
 
-				Event.preventDefault();
+				Event.preventDefault ();
 			}
 		}
 	}, 0);
 
-	document.addEventListener("mouseup", Element.mu = function ()
+	Element.addEventListener("mouseup", Element.mu = function()
 	{
 		if (Event.buttons === Button)
 		{
 			Switcher = false;
 		}
 	}, 0);
-	document.addEventListener("mousemove", Element.mm = function (Event)
+
+	Element.addEventListener("mousemove", Element.mm = function(Event)
 	{
 		if (Event.buttons === Button)
 		{
